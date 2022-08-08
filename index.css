@@ -5,6 +5,10 @@
   border: 1px green;
 }
 
+body{
+  background-image: linear-gradient(to bottom , #d7d58e, #21758d);
+}
+
 header{
   height: 10vh;
   display: flex;
@@ -16,6 +20,7 @@ header{
 main {
   display: flex;
   padding: 0 10vw 0 10vw;
+  gap: 5rem;
 }
 
 #game {
@@ -33,18 +38,37 @@ main {
   height: 80vh;
   flex-direction: column;
   gap :5rem; 
+  justify-content: center;
+  align-items: center;
   border: 1px solid black;
+  background-image: linear-gradient(to bottom,#d7d58e, #21758d); 
+  border-radius: 3%;
 }
 
 .box{
     background: grey;
     border: 1px solid red;
 }
+.play{
+  width: 11rem;
+  height: 5rem;
+  background-image: url(./img/play.png);
+  background-size: contain;
+  border-radius: 15%;
+}
 .reset {
-  background-image: url(./img/Reset.png);
+  width: 11rem;
+  height: 5rem;
+  background-image: url(./img/restart.png);
+  background-size: contain;
+  border-radius: 15%;
 }
 .exit{
+  width: 11rem;
+  height: 5rem;
   background-image: url(./img/Exit.png);
+  background-size: contain;
+  border-radius: 15%;
 }
 
 /* player , box , wall , empty place , destination  */

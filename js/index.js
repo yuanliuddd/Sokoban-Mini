@@ -1,5 +1,7 @@
 import { map } from "./map.js";
 const gameBox = document.querySelector("#game");
+const play = document.querySelector('.play'); 
+const reset = document.querySelector('.reset')
 
 class Game {
   constructor() {

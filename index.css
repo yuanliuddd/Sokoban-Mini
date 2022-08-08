@@ -1,0 +1,75 @@
+*{
+  box-sizing: border-box;
+  margin:0; 
+  padding: 0 ;
+  border: 1px green;
+}
+
+header{
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  padding: 0 10vw 0 10vw;
+}
+
+#game {
+  display: grid;
+  width: 70vw;
+  height: 80vh;
+  grid-template-rows: repeat(10,1fr) ;
+  grid-template-columns: repeat(10,1fr) ;
+  border: 1px black solid; 
+}
+
+#controller{
+  display: flex;
+  width: 30vw;
+  height: 80vh;
+  flex-direction: column;
+  gap :5rem; 
+  border: 1px solid black;
+}
+
+.box{
+    background: grey;
+    border: 1px solid red;
+}
+.reset {
+  background-image: url(./img/Reset.png);
+}
+.exit{
+  background-image: url(./img/Exit.png);
+
+}
+
+/* player , box , wall , empty place , destination  */
+.player {
+  background: blue; 
+}
+
+.box{
+  background: brown;
+}
+.wall{
+  background: black;
+}
+
+.destination{
+ background: white;
+}
+
+
+footer{
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+

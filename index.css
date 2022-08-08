@@ -45,7 +45,6 @@ main {
 }
 .exit{
   background-image: url(./img/Exit.png);
-
 }
 
 /* player , box , wall , empty place , destination  */
@@ -62,8 +61,12 @@ main {
 
 .destination{
  background: white;
+ border-radius: 50%;
 }
 
+.empty {
+  background: purple;
+}
 
 footer{
   height: 10vh;

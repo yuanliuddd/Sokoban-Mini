@@ -1,18 +1,42 @@
+import { map } from "./map.js";
 const gameBox = document.querySelector("#game");
 
 class Game {
-  constructor(widthBox, heightBox) {
-    this.widthBox = widthBox;
-    this.heightBox = heightBox;
-    this.box = this.#createBox(); 
+  constructor() {
+    this.widthBox; 
+    this.heightBox; 
+    this.level; 
   }
-  #createBox() {
-    const totalBoxNum = this.widthBox * this.heightBox;
-    for (let i = 0; i <= totalBoxNum; i++) {
-      const box = document.createElement("div");
-      box.classList.add('box'); 
-      gameBox.appendChild(box); 
+  renderMap(map) {
+    this.widthBox = map[0].length;
+    this.heightBox = map.length;
+
+    const temp = map.flat();
+
+    for (let i = 0; i <= temp.length; i++) {
+      const cell = document.createElement("div");
+      cell.classList.add(getClassNameForMap(temp[i]));
+      gameBox.appendChild(cell);
     }
   }
 }
-const game =new Game(10,10)
+
+function getClassNameForMap(mapCell) {
+  switch (mapCell) {
+    case 0:
+      return "empty";
+    case 1:
+      return "player";
+    case 2:
+      return "wall";
+    case 3:
+      return "box";
+  }
+}
+
+const game = new Game();
+game.renderMap(map);
+
+const player = {
+  location: function () {},
+};

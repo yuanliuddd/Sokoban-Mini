@@ -5,8 +5,7 @@ const reset = document.querySelector(".reset");
 const exit = document.querySelector(".exit");
 const level = document.querySelector(".level");
 
-
-//TODO        Game Class                                                                                                                                    
+//TODO        Game Class
 class Game {
   constructor() {
     this.widthBox;
@@ -47,7 +46,7 @@ function getClassNameForMap(mapCell) {
   }
 }
 
-//TODO        Init                                                                                                                                              
+//TODO        Init
 
 const game = new Game();
 game.renderMap(map);
@@ -55,7 +54,7 @@ function playerCell() {
   return game.cells.filter((ele) => ele.classList.contains("player"));
 }
 
-//TODO        PLAYER                                                                                                                                    
+//TODO        PLAYER
 
 const player = {
   cell: playerCell()[0],
@@ -77,61 +76,63 @@ const player = {
     } else {
       if (direction === "up") {
         this.hide();
-        this.cell = game.cells[this.index - game.widthBox];
-        console.log(this.cell);
+        this.index -= game.widthBox;
+        this.cell = game.cells[this.index];
         this.show();
       } else if (direction === "down") {
         this.hide();
-        this.cell = game.cells[this.index + game.widthBox - 1];
-        console.log(this.cell);
+        this.index += game.widthBox;
+        this.cell = game.cells[this.index];
         this.show();
-      } else if (direction === "right ") {
+      } else if (direction === "right") {
         this.hide();
-        this.cell = game.cells[this.index + 1];
-        console.log(this.cell);
+        this.index++;
+        this.cell = game.cells[this.index];
         this.show();
       } else if (direction === "left") {
         this.hide();
-        this.cell = game.cells[this.index - 1];
-        console.log(this.cell);
+        this.index--;
+        this.cell = game.cells[this.index];
         this.show();
       }
     }
   },
 
-  canMove(direction) { 
-    if (direction === "up") {
-      const movetoIndex = this.index - game.widthBox; 
-      if (game.cells[movetoIndex].classList.contains('wall')) return false; 
-      if (movetoIndex < 0 || movetoIndex > game.cells.length) return false; 
-      return true; 
-    }; 
+  canMove(direction) {
+    let diff;
+    switch (direction) {
+      case "up":
+        diff = -game.widthBox;
+        break;
+      case "down":
+        diff = +game.widthBox;
+        break;
+      case "right":
+        diff = +1;
+        break;
+      case "left":
+        diff = -1;
+        break;
+    }
+    const moveToIndex = diff + this.index;
 
-    if (direction === "down") {
-      const movetoIndex = this.index + game.widthBox-1;
-      if (game.cells[movetoIndex].classList.contains("wall")) return false;
-      if (movetoIndex < 0 || movetoIndex > game.cells.length) return false; 
-      return true; 
+    if (game.cells[moveToIndex].classList.contains("wall")) {
+      return false;
     }
-    if (direction === "right") {
-      const movetoIndex = this.index + 1;
-      if (game.cells[movetoIndex].classList.contains("wall")) return false;
-      if (movetoIndex < 0 || movetoIndex > game.cells.length) return false;
-      if (this.index % 9 === 0 ) return false;
-      return true;
+
+    if (game.cells[moveToIndex].classList.contains("box")) {
+      if (game.cells[moveToIndex + diff].classList.contains("wall")) {
+        return false;
+      }
+      game.cells[moveToIndex].classList.remove("box");
+      game.cells[moveToIndex + diff].classList.add("box");
     }
-    if (direction === "left") {
-      const movetoIndex = this.index - 1;
-      if (game.cells[movetoIndex].classList.contains("wall")) return false;
-      if (movetoIndex < 0 || movetoIndex > game.cells.length) return false;
-      if (this.index % 10 === 0) return false; 
-      return true;
-    }
+
+    return true;
   },
 };
 
-
-//TODO        EventListener                                                                        
+//TODO        EventListener
 
 play.addEventListener("click", () => {
   game.isStarted = true;

@@ -4,6 +4,7 @@
   padding: 0;
   border: 1px green;
   font-weight: 900;
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
 body {
@@ -16,6 +17,9 @@ header {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  background-image: url(./img/logo.png);
+  background-size: contain;
+
 }
 
 main {
@@ -30,9 +34,12 @@ main {
   height: 80vh;
   grid-template-rows: repeat(10, 1fr);
   grid-template-columns: repeat(10, 1fr);
-  border: 1px black solid;
+  border: 4px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: linear-gradient(to bottom, #d7d58e, #21758d),
+    linear-gradient(90deg, #8f41e9, #578aef);
 }
-
 #controller {
   display: flex;
   width: 30vw;
@@ -41,16 +48,15 @@ main {
   gap: 3rem;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
-  background-image: linear-gradient(to bottom, #d7d58e, #21758d);
+  border: 4px solid transparent;
   border-radius: 3%;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: linear-gradient(to bottom, #d7d58e, #21758d),
+    linear-gradient(90deg, #8f41e9, #578aef);
 }
-/* .box {
-  background: grey;
-  border: 1px solid red;
-} */
 
-div{
+div {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -63,7 +69,7 @@ div{
   background-size: contain;
   border-radius: 15%;
 }
-.level{
+.level {
   width: 5.8rem;
   height: 5rem;
   background-image: url(./img/1.png);
@@ -95,7 +101,10 @@ div{
 
 /* player , box , wall , empty place , goal spot   */
 .player {
-  background: blue;
+  /* background: blue; */
+  background-image: url(./img/player.png);
+  border-radius: 50%;
+  z-index: 2;
 }
 
 .box {
@@ -103,17 +112,19 @@ div{
   background-size: contain;
   z-index: 100;
   border-radius: 60%;
+  z-index: 2;
 }
 .wall {
   /* background: black; */
   background-image: url(./img/qiang.png);
-  border-radius: 20%;
+background-size: cover;
 }
 
 .goal {
   background-image: url(./img/goal.png);
   background-size: contain;
   border-radius: 40%;
+  z-index: 1;
 }
 
 .empty {
@@ -124,7 +135,9 @@ div{
 footer {
   height: 10vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  text-align: center;
+  text-align:center; 
+  background-image: url(./img/logo.png);
+  background-size: contain;
 }

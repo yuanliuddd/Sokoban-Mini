@@ -1,4 +1,5 @@
 import { map, map2, map3, map4, map5, map6, map7 } from "./map.js";
+const controller = document.querySelector('#controller')
 const gameBox = document.querySelector("#game");
 const play = document.querySelector(".play");
 const reset = document.querySelector(".reset");
@@ -181,8 +182,11 @@ reset.addEventListener("click", () => {
 });
 
 exit.addEventListener("click", () => {
+  game.level = 1; 
   game.reset();
   window.alert("Bye Bye");
+  gameBox.style.display = "none"
+  controller.style.display = "none";
 });
 
 document.addEventListener("keydown", (event) => {

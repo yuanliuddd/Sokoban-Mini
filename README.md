@@ -1,3 +1,3 @@
 # Sokoban-Mini
 
-Yuan Ironhack 1st Game 
+Yuan Ironhack Game 

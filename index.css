@@ -1,15 +1,16 @@
-*{
+* {
   box-sizing: border-box;
-  margin:0; 
-  padding: 0 ;
+  margin: 0;
+  padding: 0;
   border: 1px green;
+  font-weight: 900;
 }
 
-body{
-  background-image: linear-gradient(to bottom , #d7d58e, #21758d);
+body {
+  background-image: linear-gradient(to bottom, #d7d58e, #21758d);
 }
 
-header{
+header {
   height: 10vh;
   display: flex;
   flex-direction: column;
@@ -27,29 +28,37 @@ main {
   display: grid;
   width: 70vw;
   height: 80vh;
-  grid-template-rows: repeat(10,1fr) ;
-  grid-template-columns: repeat(10,1fr) ;
-  border: 1px black solid; 
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat(10, 1fr);
+  border: 1px black solid;
 }
 
-#controller{
+#controller {
   display: flex;
   width: 30vw;
   height: 80vh;
   flex-direction: column;
-  gap :5rem; 
+  gap: 3rem;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
-  background-image: linear-gradient(to bottom,#d7d58e, #21758d); 
+  background-image: linear-gradient(to bottom, #d7d58e, #21758d);
   border-radius: 3%;
 }
 
-.box{
-    background: grey;
-    border: 1px solid red;
+.box {
+  background: grey;
+  border: 1px solid red;
 }
-.play{
+.levelComplete {
+  width: 16rem;
+  height: 5rem;
+  background-image: url(./img/level.png);
+  background-size: contain;
+  border-radius: 15%;
+}
+
+.play {
   width: 11rem;
   height: 5rem;
   background-image: url(./img/play.png);
@@ -63,7 +72,7 @@ main {
   background-size: contain;
   border-radius: 15%;
 }
-.exit{
+.exit {
   width: 11rem;
   height: 5rem;
   background-image: url(./img/Exit.png);
@@ -71,32 +80,31 @@ main {
   border-radius: 15%;
 }
 
-/* player , box , wall , empty place , destination  */
+/* player , box , wall , empty place , goal spot   */
 .player {
-  background: blue; 
+  background: blue;
 }
 
-.box{
+.box {
   background: brown;
 }
-.wall{
+.wall {
   background: black;
 }
 
-.destination{
- background: white;
- border-radius: 50%;
+.goal {
+  background: white;
+  border-radius: 50%;
 }
 
 .empty {
   background: purple;
 }
 
-footer{
+footer {
   height: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 }
-

@@ -86,19 +86,22 @@ main {
 }
 
 .box {
-  background: brown;
+  background-image: url(./img/box.png);
+  background-size: contain;
+  z-index: 100;
 }
 .wall {
   background: black;
 }
 
 .goal {
-  background: white;
-  border-radius: 50%;
+  background-image: url(./img/goal.png);
+  background-size: contain;
 }
 
 .empty {
-
+  /* background-image: url(./img/floor.png); */
+  background-size: contain;
 }
 
 footer {

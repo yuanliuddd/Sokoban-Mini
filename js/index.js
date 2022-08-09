@@ -30,16 +30,25 @@ class Game {
     this.cells = cellsArr;
   }
   checkWin() {
-    if (goal.position.every(ele => ele.classList.contains('box'))) {
-      window.alert('you just won !')
-      this.level++; 
+    console.log(goal.position);
+    if (goal.position.every((ele) => ele.classList.contains("box"))) {
+      window.alert("you just won !");
+
+
+      // this.level++;
     }
   }
 
   reset() {
+    gameBox.innerHTML = "";
+
     if (this.level === 1) {
       this.renderMap(map);
+      player.init();
     }
+
+    
+    goal.position = goalPosition();  
   }
 }
 
@@ -71,6 +80,11 @@ function playerCell() {
 const player = {
   cell: playerCell()[0],
   index: parseInt(playerCell()[0].dataset.index),
+
+  init() {
+    (this.cell = playerCell()[0]),
+      (this.index = parseInt(playerCell()[0].dataset.index));
+  },
 
   show() {
     this.cell.classList.remove("empty");
@@ -152,7 +166,6 @@ const player = {
 const goal = {
   position: goalPosition(),
 };
-
 function goalPosition() {
   return game.cells.filter((ele) => ele.classList.contains("goal"));
 }
@@ -165,6 +178,7 @@ play.addEventListener("click", () => {
 
 reset.addEventListener("click", () => {
   game.isStarted = false;
+  game.reset();
 });
 
 exit.addEventListener("click", () => {

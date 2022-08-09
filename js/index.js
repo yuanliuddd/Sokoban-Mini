@@ -10,7 +10,7 @@ class Game {
   constructor() {
     this.widthBox;
     this.heightBox;
-    this.level;
+    this.level = 1;
     this.isStarted = false;
     this.cells;
   }
@@ -28,6 +28,18 @@ class Game {
       cellsArr.push(cell);
     }
     this.cells = cellsArr;
+  }
+  checkWin() {
+    if (goal.position.every(ele => ele.classList.contains('box'))) {
+      window.alert('you just won !')
+      this.level++; 
+    }
+  }
+
+  reset() {
+    if (this.level === 1) {
+      this.renderMap(map);
+    }
   }
 }
 
@@ -95,6 +107,7 @@ const player = {
         this.cell = game.cells[this.index];
         this.show();
       }
+      game.checkWin();
     }
   },
 
@@ -121,7 +134,10 @@ const player = {
     }
 
     if (game.cells[moveToIndex].classList.contains("box")) {
-      if (game.cells[moveToIndex + diff].classList.contains("wall")) {
+      if (
+        game.cells[moveToIndex + diff].classList.contains("wall") ||
+        game.cells[moveToIndex + diff].classList.contains("box")
+      ) {
         return false;
       }
       game.cells[moveToIndex].classList.remove("box");
@@ -131,6 +147,15 @@ const player = {
     return true;
   },
 };
+
+//TODO            Box
+const goal = {
+  position: goalPosition(),
+};
+
+function goalPosition() {
+  return game.cells.filter((ele) => ele.classList.contains("goal"));
+}
 
 //TODO        EventListener
 

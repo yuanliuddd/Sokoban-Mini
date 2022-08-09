@@ -1,9 +1,11 @@
-import { map } from "./map.js";
+import { map, map2, map3, map4, map5, map6, map7 } from "./map.js";
 const gameBox = document.querySelector("#game");
 const play = document.querySelector(".play");
 const reset = document.querySelector(".reset");
 const exit = document.querySelector(".exit");
 const level = document.querySelector(".level");
+
+const maps = [map, map2, map3, map4, map5, map6, map7];
 
 //TODO        Game Class
 class Game {
@@ -30,25 +32,22 @@ class Game {
     this.cells = cellsArr;
   }
   checkWin() {
-    console.log(goal.position);
     if (goal.position.every((ele) => ele.classList.contains("box"))) {
-      window.alert("you just won !");
-
-
-      // this.level++;
+      window.alert(`You won : Level ${this.level}`);
+      this.level++;
+      this.reset(this.level);
     }
   }
 
   reset() {
     gameBox.innerHTML = "";
 
-    if (this.level === 1) {
-      this.renderMap(map);
-      player.init();
-    }
+    this.renderMap(maps[this.level - 1]);
+    player.init();
 
-    
-    goal.position = goalPosition();  
+    let imageUrl = `url(./img/${this.level}.png)`
+    level.style.backgroundImage = imageUrl; 
+    goal.position = goalPosition();
   }
 }
 
@@ -182,7 +181,8 @@ reset.addEventListener("click", () => {
 });
 
 exit.addEventListener("click", () => {
-  window.alert("you lost");
+  game.reset();
+  window.alert("Bye Bye");
 });
 
 document.addEventListener("keydown", (event) => {

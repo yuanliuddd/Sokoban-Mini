@@ -45,17 +45,30 @@ main {
   background-image: linear-gradient(to bottom, #d7d58e, #21758d);
   border-radius: 3%;
 }
-
-.box {
+/* .box {
   background: grey;
   border: 1px solid red;
+} */
+
+div{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
+
 .levelComplete {
   width: 16rem;
   height: 5rem;
   background-image: url(./img/level.png);
   background-size: contain;
   border-radius: 15%;
+}
+.level{
+  width: 5.8rem;
+  height: 5rem;
+  background-image: url(./img/1.png);
+  background-size: contain;
+  border-radius: 30%;
 }
 
 .play {

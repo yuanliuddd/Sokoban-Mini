@@ -5,6 +5,10 @@ const play = document.querySelector(".play");
 const reset = document.querySelector(".reset");
 const exit = document.querySelector(".exit");
 const level = document.querySelector(".level");
+const welcome = document.querySelector("#welcome");
+const opening = document.querySelector("#opening");
+const nextLevel = document.querySelector('#nextLevel'); 
+const nextLevelsLevels = document.querySelector(".nextLevelsLevels");
 
 const maps = [map, map2, map3, map4, map5, map6, map7];
 
@@ -35,7 +39,7 @@ class Game {
   checkWin() {
     goal.position.forEach((ele) => {
       if (ele.classList.contains("box")) {
-        ele.classList.add('goalBox')
+        ele.classList.add("goalBox");
       } else {
         ele.classList.remove("goalBox");
       }
@@ -48,9 +52,14 @@ class Game {
     });
 
     if (goal.position.every((ele) => ele.classList.contains("box"))) {
-      window.alert(`You won : Level ${this.level}`);
+      opening.style.display = 'block'; 
+      this.nextLevel()
       this.level++;
-      this.reset(this.level);
+      if (this.level <= 7) {
+        this.reset(this.level);
+      } else {
+        opening.style.display = "block";
+      }
     }
   }
 
@@ -63,6 +72,12 @@ class Game {
     let imageUrl = `url(./img/${this.level}.png)`;
     level.style.backgroundImage = imageUrl;
     goal.position = goalPosition();
+  }
+
+  nextLevel() {
+    let imageUrl = `url(./img/${this.level}.png)`;
+    nextLevelsLevels.style.backgroundImage = imageUrl;
+    nextLevel.style.display = 'block'; 
   }
 }
 
@@ -198,12 +213,15 @@ reset.addEventListener("click", () => {
 exit.addEventListener("click", () => {
   game.level = 1;
   game.reset();
-  window.alert("Bye Bye");
-  gameBox.style.display = "none";
-  controller.style.display = "none";
+  opening.style.display = "block";
+  gameBox.style.visibility = "hidden";
+  controller.style.visibility = "hidden";
 });
 
 document.addEventListener("keydown", (event) => {
+  if (event.code === "Enter") {
+    welcome.style.display = "none";
+  }
   if (!game.isStarted) {
     return;
   }
@@ -222,3 +240,14 @@ document.addEventListener("keydown", (event) => {
       break;
   }
 });
+
+welcome.addEventListener("click", () => {
+  welcome.style.display = "none";
+});
+opening.addEventListener("click", () => {
+  opening.style.display = "none";
+});
+nextLevel.addEventListener('click', () => {
+  nextLevel.style.display = 'none'; 
+  opening.style.display = "none";
+})

@@ -151,7 +151,56 @@ div {
   justify-content: center;
   align-items: center;
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
+}
+
+#opening {
+  position: absolute;
+  z-index: 10;
+  top: 10vh;
+  width: 100vw;
+  height: 80vh;
+  background-image: url(./img/logo.png);
+  background-repeat: repeat;
+  background-size: cover;
+}
+#nextLevel {
+  display: none;
+  position: absolute;
+  top: 27.5vh;
+  left: 27.5vw;
+  z-index: 19;
+  width: 45vw;
+  height: 45vh;
+  background-image: url(./img/board.png);
+}
+
+#nextLevel .nextLevelLogo {
+  position: absolute;
+  top: 4vh;
+  left: 15vw;
+  width: 17vw;
+  height: 17vh;
+  background-image: url(./img/achievement.png);
+  border-radius: 15%;
+}
+.nextLevelStar {
+  position: absolute;
+  top: 23vh;
+  left: 15vw;
+  width: 15vw;
+  height: 16vh;
+  border-radius: 100%;
+  background-image: url(./img/stars.png);
+}
+#nextLevel .nextLevelsLevels {
+  position: absolute;
+  top: 14vh;
+  left: 20vw;
+  width: 5vw;
+  height: 14vh;
+  border-radius: 100%;
+  background-image: url(./img/1.png);
 }
 
 footer {
@@ -162,4 +211,10 @@ footer {
   text-align: center;
   background-image: url(./img/logo.png);
   background-size: contain;
+}
+
+@keyframes buttons  {
+  0% {
+    
+  }
 }

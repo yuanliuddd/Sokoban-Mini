@@ -132,11 +132,6 @@ background-size: cover;
   background-size: contain;
 }
 
-.empty {
-  /* background-image: url(./img/floor.png); */
-  background-size: contain;
-}
-
 footer {
   height: 10vh;
   display: flex;

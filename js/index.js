@@ -1,5 +1,5 @@
 import { map, map2, map3, map4, map5, map6, map7 } from "./map.js";
-const controller = document.querySelector('#controller')
+const controller = document.querySelector("#controller");
 const gameBox = document.querySelector("#game");
 const play = document.querySelector(".play");
 const reset = document.querySelector(".reset");
@@ -33,6 +33,20 @@ class Game {
     this.cells = cellsArr;
   }
   checkWin() {
+    goal.position.forEach((ele) => {
+      if (ele.classList.contains("box")) {
+        ele.classList.add('goalBox')
+      } else {
+        ele.classList.remove("goalBox");
+      }
+
+      if (ele.classList.contains("player")) {
+        ele.classList.remove("goal");
+      } else {
+        ele.classList.add("goal");
+      }
+    });
+
     if (goal.position.every((ele) => ele.classList.contains("box"))) {
       window.alert(`You won : Level ${this.level}`);
       this.level++;
@@ -46,8 +60,8 @@ class Game {
     this.renderMap(maps[this.level - 1]);
     player.init();
 
-    let imageUrl = `url(./img/${this.level}.png)`
-    level.style.backgroundImage = imageUrl; 
+    let imageUrl = `url(./img/${this.level}.png)`;
+    level.style.backgroundImage = imageUrl;
     goal.position = goalPosition();
   }
 }
@@ -182,10 +196,10 @@ reset.addEventListener("click", () => {
 });
 
 exit.addEventListener("click", () => {
-  game.level = 1; 
+  game.level = 1;
   game.reset();
   window.alert("Bye Bye");
-  gameBox.style.display = "none"
+  gameBox.style.display = "none";
   controller.style.display = "none";
 });
 

@@ -7,8 +7,10 @@ const exit = document.querySelector(".exit");
 const level = document.querySelector(".level");
 const welcome = document.querySelector("#welcome");
 const opening = document.querySelector("#opening");
-const nextLevel = document.querySelector('#nextLevel'); 
+const nextLevel = document.querySelector("#nextLevel");
 const nextLevelsLevels = document.querySelector(".nextLevelsLevels");
+const count = document.querySelector('.count'); 
+const steps = document.querySelector('.steps'); 
 
 const maps = [map, map2, map3, map4, map5, map6, map7];
 
@@ -20,10 +22,12 @@ class Game {
     this.level = 1;
     this.isStarted = false;
     this.cells;
+    this.steps = 60;
   }
   renderMap(map) {
     this.widthBox = map[0].length;
     this.heightBox = map.length;
+    count.textContent = this.steps; 
     const temp = map.flat();
 
     let cellsArr = [];
@@ -52,8 +56,8 @@ class Game {
     });
 
     if (goal.position.every((ele) => ele.classList.contains("box"))) {
-      opening.style.display = 'block'; 
-      this.nextLevel()
+      opening.style.display = "block";
+      this.nextLevel();
       this.level++;
       if (this.level <= 7) {
         this.reset(this.level);
@@ -65,6 +69,7 @@ class Game {
 
   reset() {
     gameBox.innerHTML = "";
+    this.steps = 60;
 
     this.renderMap(maps[this.level - 1]);
     player.init();
@@ -77,7 +82,16 @@ class Game {
   nextLevel() {
     let imageUrl = `url(./img/${this.level}.png)`;
     nextLevelsLevels.style.backgroundImage = imageUrl;
-    nextLevel.style.display = 'block'; 
+    nextLevel.style.display = "block";
+  }
+
+  countSteps() {
+    this.steps--;
+    count.textContent = this.steps; 
+    if (this.steps === 0) {
+      opening.style.display = "block";
+      this.reset(this.level);
+    }
   }
 }
 
@@ -150,6 +164,7 @@ const player = {
         this.cell = game.cells[this.index];
         this.show();
       }
+      game.countSteps(); 
       game.checkWin();
     }
   },
@@ -203,7 +218,6 @@ function goalPosition() {
 
 play.addEventListener("click", () => {
   game.isStarted = true;
-  
 });
 
 reset.addEventListener("click", () => {
@@ -247,8 +261,9 @@ welcome.addEventListener("click", () => {
 });
 opening.addEventListener("click", () => {
   opening.style.display = "none";
+  nextLevel.style.display = "none";
 });
-nextLevel.addEventListener('click', () => {
-  nextLevel.style.display = 'none'; 
+nextLevel.addEventListener("click", () => {
+  nextLevel.style.display = "none";
   opening.style.display = "none";
-})
+});

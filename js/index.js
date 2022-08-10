@@ -9,9 +9,10 @@ const welcome = document.querySelector("#welcome");
 const opening = document.querySelector("#opening");
 const nextLevel = document.querySelector("#nextLevel");
 const nextLevelsLevels = document.querySelector(".nextLevelsLevels");
-const count = document.querySelector('.count'); 
-const steps = document.querySelector('.steps'); 
-const bye = document.querySelector('#bye')
+const count = document.querySelector(".count");
+const steps = document.querySelector(".steps");
+const bye = document.querySelector("#bye");
+const winner = document.querySelector("#winner")
 
 const maps = [map, map2, map3, map4, map5, map6, map7];
 
@@ -28,7 +29,7 @@ class Game {
   renderMap(map) {
     this.widthBox = map[0].length;
     this.heightBox = map.length;
-    count.textContent = this.steps; 
+    count.textContent = this.steps;
     const temp = map.flat();
 
     let cellsArr = [];
@@ -64,6 +65,7 @@ class Game {
         this.reset(this.level);
       } else {
         opening.style.display = "block";
+        winner.style.visibility = 'visible'; 
       }
     }
   }
@@ -88,10 +90,11 @@ class Game {
 
   countSteps() {
     this.steps--;
-    count.textContent = this.steps; 
+    count.textContent = this.steps;
     if (this.steps === 0) {
       opening.style.display = "block";
       this.reset(this.level);
+      bye.style.visibility = "visible";
     }
   }
 }
@@ -165,7 +168,7 @@ const player = {
         this.cell = game.cells[this.index];
         this.show();
       }
-      game.countSteps(); 
+      game.countSteps();
       game.checkWin();
     }
   },
@@ -232,15 +235,15 @@ exit.addEventListener("click", () => {
   opening.style.display = "block";
   gameBox.style.visibility = "hidden";
   controller.style.visibility = "hidden";
-  bye.style.visibility = 'visible'
+  bye.style.visibility = "visible";
 });
 
-let musicStarted = false; 
+let musicStarted = false;
 document.addEventListener("keydown", (event) => {
   if (!musicStarted) {
-    document.querySelector('audio').play(); 
+    document.querySelector("audio").play();
   }
-  musicStarted = true; 
+  musicStarted = true;
 
   if (event.code === "Enter") {
     welcome.style.display = "none";
@@ -268,7 +271,7 @@ welcome.addEventListener("click", () => {
   welcome.style.display = "none";
 });
 opening.addEventListener("click", () => {
-  opening.style.display = "none"; 
+  opening.style.display = "none";
   nextLevel.style.display = "none";
 });
 nextLevel.addEventListener("click", () => {

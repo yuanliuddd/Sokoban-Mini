@@ -11,6 +11,7 @@ const nextLevel = document.querySelector("#nextLevel");
 const nextLevelsLevels = document.querySelector(".nextLevelsLevels");
 const count = document.querySelector('.count'); 
 const steps = document.querySelector('.steps'); 
+const bye = document.querySelector('#bye')
 
 const maps = [map, map2, map3, map4, map5, map6, map7];
 
@@ -231,6 +232,7 @@ exit.addEventListener("click", () => {
   opening.style.display = "block";
   gameBox.style.visibility = "hidden";
   controller.style.visibility = "hidden";
+  bye.style.visibility = 'visible'
 });
 
 document.addEventListener("keydown", (event) => {

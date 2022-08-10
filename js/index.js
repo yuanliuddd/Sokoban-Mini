@@ -235,7 +235,13 @@ exit.addEventListener("click", () => {
   bye.style.visibility = 'visible'
 });
 
+let musicStarted = false; 
 document.addEventListener("keydown", (event) => {
+  if (!musicStarted) {
+    document.querySelector('audio').play(); 
+  }
+  musicStarted = true; 
+
   if (event.code === "Enter") {
     welcome.style.display = "none";
   }
@@ -262,7 +268,7 @@ welcome.addEventListener("click", () => {
   welcome.style.display = "none";
 });
 opening.addEventListener("click", () => {
-  opening.style.display = "none";
+  opening.style.display = "none"; 
   nextLevel.style.display = "none";
 });
 nextLevel.addEventListener("click", () => {

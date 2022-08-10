@@ -203,6 +203,7 @@ function goalPosition() {
 
 play.addEventListener("click", () => {
   game.isStarted = true;
+  
 });
 
 reset.addEventListener("click", () => {

@@ -127,6 +127,11 @@ background-size: cover;
   z-index: 1;
 }
 
+.goalBox{
+  background-image: url(./img/red.png);
+  background-size: contain;
+}
+
 .empty {
   /* background-image: url(./img/floor.png); */
   background-size: contain;

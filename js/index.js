@@ -24,7 +24,7 @@ class Game {
     this.level = 1;
     this.isStarted = false;
     this.cells;
-    this.steps = 60;
+    this.steps = 100;
   }
   renderMap(map) {
     this.widthBox = map[0].length;
@@ -72,7 +72,7 @@ class Game {
 
   reset() {
     gameBox.innerHTML = "";
-    this.steps = 60;
+    this.steps = 100;
 
     this.renderMap(maps[this.level - 1]);
     player.init();

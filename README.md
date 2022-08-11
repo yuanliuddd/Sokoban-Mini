@@ -18,4 +18,4 @@ Good old Times lol
 - Setup a local "Best Score" as the game is not linked to a database.
 - Clean Code and try convert it to MVC 
 
-## [Link to test the game](https://yuanliuddd.github.io/Sokoban-Mini/)
+## [Game Demo](https://yuanliuddd.github.io/Sokoban-Mini/)

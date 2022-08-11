@@ -12,7 +12,7 @@ Good old Times lol
 - Push the Heart to the Spot
 - When all hearts are in position , you win 
 - There are 7 Levels 
-
+- Just in case you are not nerdy enough , there is a restart button for Cheating 
 ## What's next?
 
 - Setup a local "Best Score" as the game is not linked to a database.

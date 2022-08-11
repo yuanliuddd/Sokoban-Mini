@@ -174,7 +174,8 @@ div {
   justify-content: center;
   align-items: center;
   font-weight: 900;
-  font-size: 2.5rem;
+  font-size: 2rem;
+  color: white; 
 }
 
 #opening {
@@ -243,6 +244,7 @@ div {
   font-weight: 900;
   font-size: 2rem;
   visibility: hidden;
+  color: white; 
 }
 
 #winner{
@@ -262,6 +264,7 @@ div {
   font-weight: 900;
   font-size: 2rem;
   visibility: hidden;
+  color: white; 
 }
 
 footer {

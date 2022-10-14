@@ -19,3 +19,4 @@ Good old Times lol
 - Clean Code and try convert it to MVC 
 
 ## [Game Demo](https://yuanliuddd.github.io/Sokoban-Mini/)
+### Don't forget click "PLAY" everytime 
